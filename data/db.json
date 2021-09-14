@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Take the trash out",
+      "details": "lorem ipsum-kun",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Don't forget to breath",
+      "details": "lorem ipsum-kun",
+      "complete": true
+    }
+  ]
+}
