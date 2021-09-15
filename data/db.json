@@ -2,15 +2,21 @@
   "projects": [
     {
       "id": 1,
-      "title": "Take the trash out",
-      "details": "lorem ipsum-kun",
-      "complete": false
+      "title": "Take the trash out non",
+      "details": "lorem ipsum-kunsdsnddsdddnjsdfe",
+      "complete": true
     },
     {
       "id": 2,
       "title": "Mama mia watch out for the deleterino!",
       "details": "lorem ipsum-san",
-      "complete": false
+      "complete": true
+    },
+    {
+      "title": "bilululu",
+      "details": "bilulululu",
+      "complete": true,
+      "id": 3
     }
   ]
 }

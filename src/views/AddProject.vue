@@ -13,6 +13,7 @@ export default {
     return {
       title: '',
       details: '',
+      url: 'http://localhost:3000/projects/',
     };
   },
   methods: {
@@ -23,17 +24,17 @@ export default {
         complete: false,
       };
       try {
-        await fetch('http://localhost:3000/projects', {
+        await fetch(this.url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newProject),
         });
-        this.$router.push('/');
-        this.title = '';
-        this.details = '';
       } catch (error) {
         console.log(error);
       }
+      this.$router.push('/');
+      this.title = '';
+      this.details = '';
     },
   },
 };
@@ -61,14 +62,17 @@ input {
   width: 100%;
   box-sizing: border-box;
   font-size: 24px;
+  outline-color: #ddd;
 }
 textarea {
   border: 1px solid #add;
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
-  height: 100px;
-  font-size: 18px;
+  height: 130px;
+  font-size: 20px;
+  resize: none;
+  outline-color: #ddd;
 }
 form button {
   display: block;

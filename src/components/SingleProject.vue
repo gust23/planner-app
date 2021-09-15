@@ -3,11 +3,18 @@
     <div class="actions">
       <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
       <div class="icons">
-        <span class="material-icons" :class="{ complete: project.complete }"> edit</span>
-        <span @click="deleteProject(project.id)" :class="{ complete: project.complete }" class="material-icons">
+        <router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+          <span class="material-icons" :class="{ complete: project.complete }"> edit</span>
+        </router-link>
+
+        <span @click="this.$emit('delete', project.id)" :class="{ complete: project.complete }" class="material-icons">
           delete</span
         >
-        <span @click="toggleComplete(project.id)" :class="{ complete: project.complete }" class="material-icons tick">
+        <span
+          @click="this.$emit('done', project.id)"
+          :class="{ complete: project.complete }"
+          class="material-icons tick"
+        >
           done</span
         >
       </div>
@@ -26,12 +33,13 @@ export default {
     };
   },
   methods: {
-    deleteProject(id) {
-      this.$emit('delete', id);
-    },
-    toggleComplete(id) {
-      this.$emit('done', id);
-    },
+    // Now using inline functions
+    // deleteProject(id) {
+    //   this.$emit('delete', id);
+    // },
+    // toggleComplete(id) {
+    //   this.$emit('done', id);
+    // },
   },
 };
 </script>
@@ -40,8 +48,8 @@ export default {
   margin: 20px auto;
   background-color: white;
   padding: 10px 20px;
-  border-radius: 4px;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+
+  box-shadow: 1px 2px 3px rgba(133, 87, 87, 0.05);
   border-left: 4px solid #e90074;
 }
 
@@ -58,7 +66,7 @@ export default {
 }
 
 .material-icons {
-  font-size: 24px;
+  font-size: 26px;
   margin-left: 10px;
   color: #bbb;
   cursor: pointer;

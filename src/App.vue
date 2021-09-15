@@ -1,12 +1,14 @@
 <template>
   <NavBar />
   <router-view />
+  <Footer />
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import Footer from './components/Footer.vue';
 export default {
-  components: { NavBar },
+  components: { NavBar, Footer },
 };
 </script>
 
@@ -20,6 +22,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 600px;
   margin: 0 auto;
-  color: rgb(146, 146, 146);
+  color: rgb(88, 88, 88);
 }
 </style>
