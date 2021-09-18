@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <FilterNav @filterChange="current = $event" :current="current" />
+    <h1 v-if="errorMessage"></h1>
     <div v-if="projects.length">
       <div v-for="project in filteredProjects" :key="project.id">
         <SingleProject @done="handleDone" @delete="handleDelete" :project="project" />
@@ -20,6 +21,7 @@ export default {
       projects: [],
       url: 'http://localhost:3000/projects/',
       current: 'all',
+      errorMessage: '',
     };
   },
   computed: {
@@ -37,9 +39,13 @@ export default {
     async fetchData() {
       try {
         const res = await fetch(this.url);
+        if (!res.ok) {
+          throw Error('no data available');
+        }
         const data = await res.json();
         return data;
       } catch (error) {
+        this.errorMessage = error.message;
         console.log(error.message);
       }
     },

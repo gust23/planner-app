@@ -10,12 +10,12 @@
       "id": 2,
       "title": "Mama mia watch out for the deleterino!",
       "details": "lorem ipsum-san",
-      "complete": true
+      "complete": false
     },
     {
-      "title": "bilululu",
+      "title": "lorem",
       "details": "bilulululu",
-      "complete": true,
+      "complete": false,
       "id": 3
     }
   ]
